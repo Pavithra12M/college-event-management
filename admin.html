@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect Admin</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="admin-header">
+        <h1>CampusConnect</h1>
+        <p>Admin Dashboard</p>
+        <button onclick="adminLogout()">Logout</button>
+    </header>
+
+    <main class="dashboard">
+
+        <section class="dashboard-card">
+            <h2>Total Registrations</h2>
+            <h1 id="totalCount">0</h1>
+        </section>
+
+        <section class="dashboard-card">
+            <h2>Event-wise Registration Count</h2>
+            <div id="eventCounts"></div>
+        </section>
+
+        <section class="student-section">
+            <h2>Student Details</h2>
+            <div id="adminList"></div>
+        </section>
+
+        <a href="index.html">Back to Home</a>
+
+    </main>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

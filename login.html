@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="admin-header">
+        <h1>CampusConnect</h1>
+        <p>Welcome to College Event Management</p>
+    </header>
+
+    <section>
+        <form id="loginForm">
+            <h2>Login</h2>
+
+            <input type="email" id="loginEmail"
+                placeholder="Enter Email" required>
+
+            <input type="password" id="loginPassword"
+                placeholder="Enter Password" required>
+
+            <select id="loginRole" required>
+                <option value="">Select Role</option>
+                <option value="student">Student</option>
+                <option value="admin">Admin</option>
+            </select>
+
+            <button type="submit">Login</button>
+
+            <p id="loginMessage"></p>
+            <p style="text-align:center; margin-top:20px;">
+    New Student?
+    <a href="index.html#register">Register Here</a>
+</p>
+        </form>
+    </section>
+
+    <script src="js/login.js"></script>
+
+</body>
+</html>

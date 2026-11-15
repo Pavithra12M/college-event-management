@@ -1,0 +1,319 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fc;
+    color: #222;
+    line-height: 1.6;
+}
+
+nav {
+    background: #102a63;
+    color: white;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.hero {
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+}
+
+section {
+    padding: 40px 20px;
+}
+
+.events {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.event-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 280px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+form {
+    max-width: 500px;
+    margin: auto;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+footer {
+    background: #102a63;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Admin Dashboard */
+
+.admin-header {
+    background: #102a63;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+.admin-header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.admin-header p {
+    font-size: 18px;
+}
+
+.dashboard {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    border-left: 5px solid #2563eb;
+}
+
+.dashboard-card h2,
+.student-section h2 {
+    color: #102a63;
+}
+
+#totalCount {
+    color: #2563eb;
+    font-size: 42px;
+}
+
+#eventCounts p {
+    background: #eff6ff;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    color: #102a63;
+    font-weight: bold;
+}
+
+.student-section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+#adminList > div {
+    background: #f1f5f9;
+    padding: 18px;
+    margin: 15px 0;
+    border-radius: 10px;
+}
+
+#adminList button {
+    background: #dc2626;
+    color: white;
+}
+
+.dashboard a {
+    display: inline-block;
+    margin-top: 25px;
+    color: #2563eb;
+    font-weight: bold;
+}/* Student Registration Page */
+
+#register {
+    background: #eef4ff;
+    padding: 50px 20px;
+}
+
+#register h2 {
+    text-align: center;
+    color: #102a63;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+#registrationForm {
+    max-width: 550px;
+    margin: auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+#registrationForm input,
+#registrationForm select,
+#registrationForm textarea {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+#registrationForm input:focus,
+#registrationForm select:focus,
+#registrationForm textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 5px rgba(37,99,235,0.3);
+}
+
+#registrationForm button {
+    width: 100%;
+    padding: 15px;
+    background: #102a63;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#registrationForm button:hover {
+    background: #2563eb;
+}
+
+#message {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+@media (max-width: 600px) {
+    #registrationForm {
+        padding: 20px;
+    }
+}/* CampusConnect Login Page */
+
+#loginForm {
+    max-width: 420px;
+    margin: 30px auto;
+    padding: 35px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+}
+
+#loginForm h2 {
+    text-align: center;
+    color: #102a63;
+    margin-bottom: 20px;
+}
+
+#loginForm input,
+#loginForm select {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+#loginForm button {
+    width: 100%;
+    padding: 14px;
+    background: #102a63;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+#loginForm button:hover {
+    background: #2563eb;
+}
+
+#loginMessage {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+/* Mobile Responsive Design */
+
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0;
+    }
+
+    .dashboard {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .dashboard-card {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    input,
+    select,
+    textarea,
+    button {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    section {
+        padding: 15px;
+    }
+}

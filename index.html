@@ -1,0 +1,107 @@
+<!DOCPTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+    <nav>
+    <h2>CampusConnect</h2>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#register">Register</a></li>
+        <li><a href="login.html">Login</a></li>
+    </ul>
+</nav>
+</header>
+
+<section id="home" class="hero">
+    <h1>Welcome to CampusConnect</h1>
+    <p>Discover Events. Connect with People. Create Memories.</p>
+    <a href="#events" class="btn">Explore Events</a>
+</section>
+
+<section id="events">
+    <h1>Upcoming Events</h1>
+
+    <div class="event-container">
+
+        <div class="event-card">
+            <h2>Technical Symposium</h2>
+            <p>Date: 18 December</p>
+            <p>Technical competitions and workshops.</p>
+            <button onclick="selectEvent('Technical Symposium')">Register</button>
+        </div>
+
+        <div class="event-card">
+            <h2>Cultural Fest</h2>
+            <p>Date: 20 December</p>
+            <p>Dance, Music and Cultural Programs.</p>
+            <button onclick="selectEvent('Cultural Fest')">Register</button>
+        </div>
+
+        <div class="event-card">
+            <h2>Sports Day</h2>
+            <p>Date: 22 December</p>
+            <p>Indoor and Outdoor Sports Activities.</p>
+            <button onclick="selectEvent('Sports Day')">Register</button>
+        </div>
+
+    </div>
+</section>
+
+<section id="about">
+    <h1>About Us</h1>
+    <p>
+        CampusConnect is a college event management website.
+        Students can explore events and register for activities.
+    </p>
+</section>
+
+<section id="register">
+    <h1>Event Registration</h1>
+
+    <form id="registrationForm">
+        <input type="text" id="name" placeholder="Enter Your Name" required>
+        <input type="email" id="email" placeholder="Enter Your Email" required>
+
+        <select id="department" required>
+            <option value="">Select Department</option>
+            <option>AI & Data Science</option>
+            <option>Computer Science</option>
+            <option>Information Technology</option>
+        </select>
+
+        <select id="event" required>
+            <option value="">Select Event</option>
+            <option>Technical Symposium</option>
+            <option>Cultural Fest</option>
+            <option>Sports Day</option>
+        </select>
+
+        <button type="submit">Submit Registration</button>
+    </form>
+
+    <p id="message"></p>
+</section>
+
+<footer>
+    <p>© 2026 CampusConnect | College Event Management</p>
+</footer>
+
+<script src="js/script.js"></script>
+<a href="registrations.html">
+    View Registration Details
+</a>
+<a href="admin.html">Admin Dashboard</a>
+</body>
+</html>
+</body>
+</html>

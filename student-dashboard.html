@@ -39,5 +39,12 @@
         <button onclick="studentLogout()">Logout</button>
     </main>
 <script src="js/student-dashboard.js"></script>
+    <script>
+function studentLogout() {
+    localStorage.removeItem("currentUser");
+    localStorage.removeItem("currentUserRole");
+    window.location.href = "login.html";
+}
+</script>
 </body>
 </html>

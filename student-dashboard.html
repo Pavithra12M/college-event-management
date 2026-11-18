@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - CampusConnect</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="admin-header">
+        <h1>CampusConnect</h1>
+        <p>Student Dashboard</p>
+    </header>
+
+    <main class="dashboard">
+       <section class="dashboard-card">
+    <h2>My Registration Details</h2>
+    <div id="myRegistration"></div>
+</section>
+
+        <section class="dashboard-card">
+            <h2>Available Events</h2>
+
+            <p>Technical Symposium</p>
+            <p>Cultural Fest</p>
+            <p>Sports Day</p>
+
+            <a href="index.html#register">Register for an Event</a>
+        </section>
+
+        <section class="dashboard-card">
+            <h2>Registration Details</h2>
+            <a href="registrations.html">View Registration Details</a>
+        </section>
+
+        <a href="index.html">Back to Home</a>
+        <br><br>
+        <button onclick="studentLogout()">Logout</button>
+    </main>
+<script src="js/student-dashboard.js"></script>
+</body>
+</html>

@@ -11,15 +11,25 @@ if (registrations.length === 0) {
 
     registrations.forEach((student, index) => {
         const card = document.createElement("div");
+        const heading = document.createElement("h3");
+        heading.textContent = "Student " + (index + 1);
+        card.appendChild(heading);
 
-        card.innerHTML = `
-            <h3>Student ${index + 1}</h3>
-            <p>Name: ${student.name}</p>
-            <p>Email: ${student.email}</p>
-            <p>Department: ${student.department}</p>
-            <p>Event: ${student.event}</p>
-            <hr>
-        `;
+        const details = [
+            ["Name", student.name],
+            ["Email", student.email],
+            ["Year", student.year || "Not provided"],
+            ["Department", student.department],
+            ["College", student.college || "Not provided"],
+            ["Event", student.event]
+        ];
+        details.forEach(([label, value]) => {
+            const detail = document.createElement("p");
+            detail.textContent = label + ": " + value;
+            card.appendChild(detail);
+        });
+
+        card.appendChild(document.createElement("hr"));
 
         registrationList.appendChild(card);
     });

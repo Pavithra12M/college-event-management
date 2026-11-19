@@ -1,162 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CampusConnect - College Events</title>
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f6ff;
-    color: #222;
-}
-
-header {
-    background: #252477;
-    color: white;
-    padding: 20px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-header h2 {
-    font-size: 25px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 18px;
-}
-
-.hero {
-    text-align: center;
-    padding: 90px 20px;
-    background: linear-gradient(135deg, #252477, #7168d8);
-    color: white;
-}
-
-.hero h1 {
-    font-size: 42px;
-    margin-bottom: 18px;
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-
-.btn {
-    display: inline-block;
-    background: #ffbd59;
-    color: #222;
-    padding: 13px 28px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-section {
-    padding: 45px 7%;
-    text-align: center;
-}
-
-.events {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-.event-card {
-    background: white;
-    padding: 30px 20px;
-    width: 250px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px #0001;
-}
-
-.event-card h3 {
-    color: #252477;
-    margin-bottom: 12px;
-}
-
-footer {
-    background: #252477;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-@media(max-width:600px) {
-    header {
-        justify-content: center;
-        text-align: center;
-    }
-
-    nav a {
-        margin: 8px;
-    }
-
-    .hero h1 {
-        font-size: 30px;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
 <header>
-    <h2>CampusConnect</h2>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="#events">Events</a>
-        <a href="login.html">Login</a>
+    <nav class="site-nav" aria-label="Main navigation">
+        <h2><a class="site-brand" href="#home">CampusConnect</a></h2>
+        <button class="menu-toggle" id="menuToggle" type="button"
+            aria-controls="mainMenu" aria-expanded="false" aria-label="Open navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-menu" id="mainMenu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#register">Register</a></li>
+        <li><a href="login.html">Login</a></li>
+        </ul>
     </nav>
 </header>
 
-<div class="hero">
-    <h1>Welcome to CampusConnect</h1>
-    <p>Discover, Participate and Celebrate College Events!</p>
-    <a href="login.html" class="btn">Get Started</a>
-</div>
+<section id="home" class="hero">
+    <h1>Welcome to <span>CampusConnect</span></h1>
+    <p>Discover Events. Connect with People. Create Memories.</p>
+    <a href="#events" class="btn">Explore Events</a>
+</section>
 
 <section id="events">
-    <h2>Our Events</h2>
+    <h1>Upcoming Events</h1>
 
-    <div class="events">
+    <div class="event-container">
+
         <div class="event-card">
-            <h3>🎭 Cultural Events</h3>
-            <p>Enjoy music, dance and cultural activities.</p>
+            <img src="images/technical-symposium.jpeg" alt="Technical Symposium event" loading="lazy">
+            <div class="event-card-content">
+                <h2>Technical Symposium</h2>
+                <p>Technical competitions and workshops.</p>
+                <button onclick="selectEvent('Technical Symposium')">Register</button>
+            </div>
         </div>
 
         <div class="event-card">
-            <h3>💻 Technical Events</h3>
-            <p>Participate in coding and technical competitions.</p>
+            <img src="images/cultural-fest.jpeg" alt="Cultural Fest event" loading="lazy">
+            <div class="event-card-content">
+                <h2>Cultural Fest</h2>
+                <p>Dance, Music and Cultural Programs.</p>
+                <button onclick="selectEvent('Cultural Fest')">Register</button>
+            </div>
         </div>
 
         <div class="event-card">
-            <h3>⚽ Sports Events</h3>
-            <p>Show your talent in sports competitions.</p>
+            <img src="images/sports-day.jpeg" alt="Sports Day event" loading="lazy">
+            <div class="event-card-content">
+                <h2>Sports Day</h2>
+                <p>Indoor and Outdoor Sports Activities.</p>
+                <button onclick="selectEvent('Sports Day')">Register</button>
+            </div>
         </div>
+
     </div>
 </section>
 
+<section id="about">
+    <h1>About Us</h1>
+    <p>
+        CampusConnect is a college event management website.
+        Students can explore events and register for activities.
+    </p>
+</section>
+
+<section id="register">
+    <h1>Event Registration</h1>
+
+    <form id="registrationForm">
+        <label for="name">Full name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+
+        <label for="year">Year of study</label>
+        <select id="year" required>
+            <option value="">Select Year</option>
+            <option>1st Year</option>
+            <option>2nd Year</option>
+            <option>3rd Year</option>
+            <option>4th Year</option>
+            <option>Other</option>
+        </select>
+
+        <label for="department">Department</label>
+        <select id="department" required>
+            <option value="">Select Department</option>
+            <option>AI & Data Science</option>
+            <option>Computer Science</option>
+            <option>Information Technology</option>
+            <option>Electronics and Communication</option>
+            <option>Electrical and Electronics</option>
+            <option>Mechanical Engineering</option>
+            <option>Other</option>
+        </select>
+
+        <label for="event">Event</label>
+        <select id="event" required>
+            <option value="">Select Event</option>
+            <option>Technical Symposium</option>
+            <option>Cultural Fest</option>
+            <option>Sports Day</option>
+        </select>
+
+        <label for="college">College</label>
+        <input type="text" id="college" list="collegeOptions"
+            placeholder="Search or enter your college name" autocomplete="organization" required>
+        <datalist id="collegeOptions">
+            <option value="Anna University, Chennai"></option>
+            <option value="University of Madras, Chennai"></option>
+            <option value="SRM Institute of Science and Technology, Chennai"></option>
+            <option value="Vellore Institute of Technology, Vellore"></option>
+            <option value="PSG College of Technology, Coimbatore"></option>
+            <option value="Coimbatore Institute of Technology, Coimbatore"></option>
+            <option value="Thiagarajar College of Engineering, Madurai"></option>
+            <option value="Kumaraguru College of Technology, Coimbatore"></option>
+            <option value="Kongu Engineering College, Erode"></option>
+            <option value="National Institute of Technology, Tiruchirappalli"></option>
+            <option value="Amrita Vishwa Vidyapeetham, Coimbatore"></option>
+        </datalist>
+
+        <button type="submit">Submit Registration</button>
+    </form>
+
+    <p id="message"></p>
+</section>
+
 <footer>
-    <p>© 2026 CampusConnect | College Event Management</p>
+    <p>© CampusConnect | College Event Management</p>
 </footer>
 
+<script src="js/script.js"></script>
+<a href="registrations.html">
+    View Registration Details
+</a>
+<a href="admin.html">Admin Dashboard</a>
 </body>
 </html>

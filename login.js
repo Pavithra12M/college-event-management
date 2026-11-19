@@ -1,37 +1,41 @@
+const adminEmail = "admin@campusconnect.com";
+
+const emailInput = document.getElementById("loginEmail");
+const roleInput = document.getElementById("loginRole");
+const loginMessage = document.getElementById("loginMessage");
+
 document.getElementById("loginForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const email = document.getElementById("loginEmail").value.trim().toLowerCase();
-    const password = document.getElementById("loginPassword").value.trim();
-    const role = document.getElementById("loginRole").value;
-    const message = document.getElementById("loginMessage");
+    const email = emailInput.value.trim().toLowerCase();
+    const password = document.getElementById("loginPassword").value;
+    const role = roleInput.value;
 
     if (role === "admin") {
-        if (email === "admin@campusconnect.com" &&
-            password === "Admin123") {
-
-            message.textContent = "Admin Login Successful!";
-            message.style.color = "green";
-localStorage.setItem("currentUserRole", "admin");
-            window.location.href = "admin.html";
-
-        } else {
-            message.textContent = "Invalid Admin Email or Password.";
-            message.style.color = "red";
+        if (email !== adminEmail) {
+            loginMessage.textContent = "Enter the administrator email address.";
+            loginMessage.className = "login-error";
+            return;
         }
 
-    } else if (role === "student") {
+        if (password !== "Admin123") {
+            loginMessage.textContent = "The admin password is incorrect.";
+            loginMessage.className = "login-error";
+            return;
+        }
 
-        message.textContent = "Student Login Successful!";
-        message.style.color = "green";
-
-        localStorage.setItem("currentStudentEmail", email);
-        localStorage.setItem("currentUserRole", "student");
-
-        window.location.href = "student-dashboard.html";
-
-    } else {
-        message.textContent = "Please select your role.";
-        message.style.color = "red";
+        localStorage.setItem("currentUserRole", "admin");
+        window.location.href = "admin.html";
+        return;
     }
+
+    if (email === adminEmail) {
+        loginMessage.textContent = "Select Admin to sign in with the administrator account.";
+        loginMessage.className = "login-error";
+        return;
+    }
+
+    localStorage.setItem("currentStudentEmail", email);
+    localStorage.setItem("currentUserRole", "student");
+    window.location.href = "student-dashboard.html";
 });

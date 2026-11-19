@@ -1,4 +1,4 @@
-* {
+* {/* 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -1216,81 +1216,7 @@ footer {
         padding: 15px;
     }
 }
-/* RESPONSIVE WEBSITE DESIGN */
 
-* {
-    box-sizing: border-box;
-}
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-.container,
-.dashboard {
-    width: 95%;
-    max-width: 1200px;
-    margin: auto;
-}
-
-button,
-input,
-select,
-textarea {
-    max-width: 100%;
-}
-
-.dashboard-card {
-    width: 100%;
-    border-radius: 12px;
-}
-
-@media screen and (max-width: 768px) {
-
-    nav {
-        flex-direction: column;
-        gap: 12px;
-        padding: 15px;
-    }
-
-    .dashboard {
-        width: 100%;
-        padding: 10px;
-    }
-
-    .dashboard-card {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-
-    header h1 {
-        font-size: 24px;
-    }
-
-    section {
-        padding: 15px;
-    }
-
-    button {
-        width: 100%;
-        margin: 5px 0;
-    }
-}
-
-@media screen and (max-width: 480px) {
-
-    body {
-        font-size: 14px;
-    }
-
-    header h1 {
-        font-size: 21px;
-    }
-
-    input,
-    select,
-    textarea {
-        width: 100%;
-    }
-}
+      
+   

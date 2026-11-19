@@ -3,36 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusConnect Admin</title>
+    <title>Admin Dashboard - CampusConnect</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="admin-page">
 
     <header class="admin-header">
-        <h1>CampusConnect</h1>
-        <p>Admin Dashboard</p>
-        <button type="button" onclick="adminLogout()">Logout</button>
+        <div class="admin-header-content">
+            <div>
+                <p class="admin-brand">CampusConnect</p>
+                <h1>Admin Dashboard</h1>
+                <p>Manage event registrations and student details.</p>
+            </div>
+            <div class="admin-header-actions">
+                <a href="index.html">View website</a>
+                <button type="button" onclick="adminLogout()">Logout</button>
+            </div>
+        </div>
     </header>
 
     <main class="dashboard">
-
-        <section class="dashboard-card">
-            <h2>Total Registrations</h2>
-            <h1 id="totalCount">0</h1>
+        <section class="dashboard-summary" aria-label="Registration overview">
+            <article class="dashboard-card">
+                <p>Total registrations</p>
+                <strong id="totalCount">0</strong>
+            </article>
+            <article class="dashboard-card">
+                <p>Available events</p>
+                <strong id="eventTotalCount">0</strong>
+            </article>
+            <article class="dashboard-card">
+                <p>Most popular event</p>
+                <strong class="popular-event" id="popularEvent">None yet</strong>
+            </article>
         </section>
 
-        <section class="dashboard-card">
-            <h2>Event-wise Registration Count</h2>
-            <div id="eventCounts"></div>
+        <section class="dashboard-panel" aria-labelledby="eventSummaryHeading">
+            <div class="dashboard-section-heading">
+                <div>
+                    <p class="section-eyebrow">OVERVIEW</p>
+                    <h2 id="eventSummaryHeading">Registrations by event</h2>
+                </div>
+            </div>
+            <div class="event-count-grid" id="eventCounts"></div>
         </section>
 
-        <section class="student-section">
-            <h2>Student Details</h2>
-            <div id="adminList"></div>
+        <section class="dashboard-panel" aria-labelledby="registrationHeading">
+            <div class="dashboard-section-heading">
+                <div>
+                    <p class="section-eyebrow">STUDENT RECORDS</p>
+                    <h2 id="registrationHeading">Registrations</h2>
+                </div>
+                <span class="registration-result-count" id="registrationResultCount" aria-live="polite"></span>
+            </div>
+
+            <div class="registration-filters">
+                <label for="registrationSearch">Search students</label>
+                <input type="search" id="registrationSearch" placeholder="Search name, email or college">
+                <label for="eventFilter">Filter by event</label>
+                <select id="eventFilter">
+                    <option value="">All events</option>
+                    <option>Technical Symposium</option>
+                    <option>Cultural Fest</option>
+                    <option>Sports Day</option>
+                </select>
+            </div>
+
+            <div class="registration-table-wrap">
+                <table class="registration-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Student</th>
+                            <th scope="col">Year &amp; Department</th>
+                            <th scope="col">College</th>
+                            <th scope="col">Event</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminList"></tbody>
+                </table>
+            </div>
         </section>
-
-        <a href="index.html">Back to Home</a>
-
     </main>
 
     <script src="js/admin.js"></script>

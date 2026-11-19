@@ -21,12 +21,86 @@
 
         <section class="dashboard-card">
             <h2>Available Events</h2>
+            <div class="available-event-list">
+                <article class="available-event">
+                    <div>
+                        <h3>Technical Symposium</h3>
+                        <p>Technical competitions and workshops.</p>
+                    </div>
+                    <button type="button" class="event-register-button" data-event="Technical Symposium">Register</button>
+                </article>
+                <article class="available-event">
+                    <div>
+                        <h3>Cultural Fest</h3>
+                        <p>Dance, music and cultural programs.</p>
+                    </div>
+                    <button type="button" class="event-register-button" data-event="Cultural Fest">Register</button>
+                </article>
+                <article class="available-event">
+                    <div>
+                        <h3>Sports Day</h3>
+                        <p>Indoor and outdoor sports activities.</p>
+                    </div>
+                    <button type="button" class="event-register-button" data-event="Sports Day">Register</button>
+                </article>
+            </div>
+        </section>
 
-            <p>Technical Symposium</p>
-            <p>Cultural Fest</p>
-            <p>Sports Day</p>
+        <section class="dashboard-card dashboard-registration" id="dashboardRegister" hidden>
+            <h2>Event Registration</h2>
+            <p class="selected-event">Registering for <strong id="dashboardSelectedEvent"></strong></p>
+            <form id="dashboardRegistrationForm" class="event-registration-form">
+                <input type="hidden" id="dashboardEvent">
 
-            <a href="index.html#register">Register for an Event</a>
+                <label for="dashboardName">Full name</label>
+                <input type="text" id="dashboardName" placeholder="Enter your name" required>
+
+                <label for="dashboardEmail">Email address</label>
+                <input type="email" id="dashboardEmail" readonly required>
+
+                <label for="dashboardYear">Year of study</label>
+                <select id="dashboardYear" required>
+                    <option value="">Select year</option>
+                    <option>1st Year</option>
+                    <option>2nd Year</option>
+                    <option>3rd Year</option>
+                    <option>4th Year</option>
+                    <option>Other</option>
+                </select>
+
+                <label for="dashboardDepartment">Department</label>
+                <select id="dashboardDepartment" required>
+                    <option value="">Select department</option>
+                    <option>AI &amp; Data Science</option>
+                    <option>Computer Science</option>
+                    <option>Information Technology</option>
+                    <option>Electronics and Communication</option>
+                    <option>Electrical and Electronics</option>
+                    <option>Mechanical Engineering</option>
+                    <option>Other</option>
+                </select>
+
+                <label for="dashboardCollege">College</label>
+                <input type="text" id="dashboardCollege" list="collegeOptions"
+                    placeholder="Search or enter your college name" autocomplete="organization" required>
+
+                <datalist id="collegeOptions">
+                    <option value="Anna University, Chennai"></option>
+                    <option value="University of Madras, Chennai"></option>
+                    <option value="SRM Institute of Science and Technology, Chennai"></option>
+                    <option value="Vellore Institute of Technology, Vellore"></option>
+                    <option value="PSG College of Technology, Coimbatore"></option>
+                    <option value="Coimbatore Institute of Technology, Coimbatore"></option>
+                    <option value="Thiagarajar College of Engineering, Madurai"></option>
+                    <option value="Kumaraguru College of Technology, Coimbatore"></option>
+                    <option value="Kongu Engineering College, Erode"></option>
+                    <option value="National Institute of Technology, Tiruchirappalli"></option>
+                    <option value="Amrita Vishwa Vidyapeetham, Coimbatore"></option>
+                </datalist>
+
+                <button type="submit">Submit Registration</button>
+                <p id="dashboardRegistrationMessage" role="status" aria-live="polite"></p>
+            </form>
         </section>
 
         <section class="dashboard-card">
@@ -36,15 +110,8 @@
 
         <a href="index.html">Back to Home</a>
         <br><br>
-        <button type="button" onclick="studentLogout()">Logout</button>
+        <button onclick="studentLogout()">Logout</button>
     </main>
 <script src="js/student-dashboard.js"></script>
-    <script>
-function studentLogout() {
-    localStorage.removeItem("currentUser");
-    localStorage.removeItem("currentUserRole");
-    window.location.href = "login.html";
-}
-</script>
 </body>
 </html>

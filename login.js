@@ -3,9 +3,9 @@ import {
     db,
     signInWithEmailAndPassword,
     doc,
-    getDoc
+    getDoc,
+    signOut
 } from "./firebase.js";
-
 const loginForm = document.getElementById("loginForm");
 const loginMessage = document.getElementById("loginMessage");
 
@@ -40,7 +40,7 @@ loginForm.addEventListener("submit", async function(event) {
         const userDoc = await getDoc(doc(db, "users", user.uid));
 
         if (!userDoc.exists() || userDoc.data().role !== role) {
-            await auth.signOut();
+            await signout(auth)
             showMessage("Account role does not match.", "login-error");
             return;
         }

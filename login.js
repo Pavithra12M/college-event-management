@@ -1,26 +1,29 @@
 const adminEmail = "admin@campusconnect.com";
 
 const emailInput = document.getElementById("loginEmail");
-const roleInput = document.getElementById("loginRole");
+const passwordInput = document.getElementById("loginPassword");
 const loginMessage = document.getElementById("loginMessage");
 
 document.getElementById("loginForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
     const email = emailInput.value.trim().toLowerCase();
-    const password = document.getElementById("loginPassword").value;
-    const role = roleInput.value;
+    const password = passwordInput.value;
+
+    const selectedRole = document.querySelector(
+        'input[name="loginRole"]:checked'
+    );
+
+    if (!selectedRole) {
+        showMessage("Please select Student or Admin.", "login-error");
+        return;
+    }
+
+    const role = selectedRole.value;
 
     if (role === "admin") {
-        if (email !== adminEmail) {
-            loginMessage.textContent = "Enter the administrator email address.";
-            loginMessage.className = "login-error";
-            return;
-        }
-
-        if (password !== "Admin123") {
-            loginMessage.textContent = "The admin password is incorrect.";
-            loginMessage.className = "login-error";
+        if (email !== adminEmail || password !== "Admin123") {
+            showMessage("Invalid admin email or password.", "login-error");
             return;
         }
 
@@ -30,12 +33,14 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     }
 
     if (email === adminEmail) {
-        loginMessage.textContent = "Select Admin to sign in with the administrator account.";
-        loginMessage.className = "login-error";
+        showMessage("Please select Admin to continue.", "login-error");
         return;
     }
 
-    localStorage.setItem("currentStudentEmail", email);
-    localStorage.setItem("currentUserRole", "student");
-    window.location.href = "student-dashboard.html";
+    showMessage("Student login requires account verification.", "login-error");
 });
+
+function showMessage(message, className) {
+    loginMessage.textContent = message;
+    loginMessage.className = className;
+}

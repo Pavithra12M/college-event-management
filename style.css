@@ -1216,3 +1216,48 @@ footer {
         padding: 15px;
     }
 }
+/* CampusConnect Login Role Design */
+
+.role-selection {
+    display: flex;
+    gap: 15px;
+    margin: 12px 0 22px;
+}
+
+.role-option {
+    flex: 1;
+    cursor: pointer;
+}
+
+.role-option input {
+    display: none;
+}
+
+.role-option span {
+    display: block;
+    padding: 16px;
+    text-align: center;
+    border: 2px solid #dce3ef;
+    border-radius: 12px;
+    background: #fff;
+    color: #102a63;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.role-option input:checked + span {
+    border-color: #2563eb;
+    background: #eaf1ff;
+    color: #1d4ed8;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
+}
+
+.role-option span:hover {
+    border-color: #2563eb;
+}
+
+.login-error {
+    color: #dc2626;
+    margin-top: 12px;
+    font-size: 14px;
+}

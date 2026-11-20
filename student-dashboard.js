@@ -102,7 +102,8 @@ dashboardForm.addEventListener("submit", function(event) {
     displayStudentRegistrations();
 });
 
-function studentLogout() {
+window.studentLogout = function() {
     localStorage.removeItem("currentStudentEmail");
+    localStorage.removeItem("currentUserRole");
     window.location.href = "login.html";
-}
+};

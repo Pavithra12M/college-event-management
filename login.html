@@ -49,12 +49,20 @@
                     <label for="loginPassword">Password</label>
                     <input type="password" id="loginPassword" placeholder="Enter your password"
                         autocomplete="current-password" required>
+<label>Select your role</label>
 
-                    <label for="loginRole">Select role</label>
-                    <select id="loginRole" required>
-                        <option value="student">Student</option>
-                        <option value="admin">Admin</option>
-                    </select>
+<div class="role-selection">
+    <label class="role-option">
+        <input type="radio" name="loginRole" value="student" checked>
+        <span>🎓 Student</span>
+    </label>
+
+    <label class="role-option">
+        <input type="radio" name="loginRole" value="admin">
+        <span>🛡️ Admin</span>
+    </label>
+</div>
+                  
 
                     <button class="login-submit" type="submit">
                         <span>Continue to CampusConnect</span>

@@ -7,6 +7,7 @@ import {
     signOut
 } from "./firebase.js";
 const loginForm = document.getElementById("loginForm");
+console.log("Login JS loaded successfully");
 const loginMessage = document.getElementById("loginMessage");
 
 loginForm.addEventListener("submit", async function(event) {

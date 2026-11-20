@@ -11,6 +11,7 @@ console.log("Login JS loaded successfully");
 const loginMessage = document.getElementById("loginMessage");
 
 loginForm.addEventListener("submit", async function(event) {
+    console.log("Login button clicked");
     event.preventDefault();
 
     const email = document.getElementById("loginEmail").value.trim().toLowerCase();

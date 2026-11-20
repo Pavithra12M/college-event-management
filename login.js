@@ -1,43 +1,65 @@
-const adminEmail = "admin@campusconnect.com";
+import {
+    auth,
+    db,
+    signInWithEmailAndPassword,
+    doc,
+    getDoc
+} from "./firebase.js";
 
-const emailInput = document.getElementById("loginEmail");
-const passwordInput = document.getElementById("loginPassword");
+const loginForm = document.getElementById("loginForm");
 const loginMessage = document.getElementById("loginMessage");
 
-document.getElementById("loginForm").addEventListener("submit", function(event) {
+loginForm.addEventListener("submit", async function(event) {
     event.preventDefault();
 
-    const email = emailInput.value.trim().toLowerCase();
-    const password = passwordInput.value;
+    const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+    const password = document.getElementById("loginPassword").value;
 
     const selectedRole = document.querySelector(
         'input[name="loginRole"]:checked'
     );
 
     if (!selectedRole) {
-        showMessage("Please select Student or Admin.", "login-error");
+        showMessage("Please select your role.", "login-error");
         return;
     }
 
     const role = selectedRole.value;
 
-    if (role === "admin") {
-        if (email !== adminEmail || password !== "Admin123") {
-            showMessage("Invalid admin email or password.", "login-error");
+    try {
+        showMessage("Signing in...", "");
+
+        const result = await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+        const user = result.user;
+
+        const userDoc = await getDoc(doc(db, "users", user.uid));
+
+        if (!userDoc.exists() || userDoc.data().role !== role) {
+            await auth.signOut();
+            showMessage("Account role does not match.", "login-error");
             return;
         }
 
-        localStorage.setItem("currentUserRole", "admin");
-        window.location.href = "admin.html";
-        return;
-    }
+        localStorage.setItem("currentUserRole", role);
 
-    if (email === adminEmail) {
-        showMessage("Please select Admin to continue.", "login-error");
-        return;
-    }
+        if (role === "admin") {
+            window.location.href = "admin.html";
+        } else {
+            localStorage.setItem("currentStudentEmail", user.email);
+            window.location.href = "student-dashboard.html";
+        }
 
-    showMessage("Student login requires account verification.", "login-error");
+    } catch (error) {
+        showMessage(
+            "Login failed. Check your email and password.",
+            "login-error"
+        );
+    }
 });
 
 function showMessage(message, className) {

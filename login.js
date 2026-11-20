@@ -40,8 +40,8 @@ loginForm.addEventListener("submit", async function(event) {
         const userDoc = await getDoc(doc(db, "users", user.uid));
 
         if (!userDoc.exists() || userDoc.data().role !== role) {
-            await signout(auth)
-            showMessage("Account role does not match.", "login-error");
+            await signOut(auth);
+                showMessage("Account role does not match.", "login-error");
             return;
         }
 
